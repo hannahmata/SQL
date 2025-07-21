@@ -1,0 +1,181 @@
+Schema SQL
+1
+CREATE TABLE superstore (
+2
+    item_id INTEGER PRIMARY KEY,
+3
+    item_name TEXT,
+4
+    category TEXT,
+5
+    price DECIMAL(10, 2),
+6
+    stock_quantity INTEGER,
+7
+    average_rating DECIMAL(3, 2)
+8
+);
+9
+​
+10
+INSERT INTO superstore (item_id, item_name, category, price, stock_quantity, average_rating)
+11
+VALUES
+12
+    (1, 'Stainless Steel Cookware Set', 'Kitchen Supplies', 89.99, 50, 4.6),
+13
+    (2, 'Memory Foam Mattress', 'Furnishings', 499.99, 30, 4.8),
+14
+    (3, 'Smart LED TV', 'Electronics', 549.00, 20, 4.5),
+15
+    (4, 'Robot Vacuum Cleaner', 'Appliances', 199.50, 40, 4.3),
+16
+    (5, 'Wireless Bluetooth Speaker', 'Electronics', 39.99, 60, 4.2),
+17
+    (6, 'Non-Stick Baking Set', 'Kitchen Supplies', 29.95, 80, 4.4),
+18
+    (7, 'Cotton Bedding Set', 'Furnishings', 89.00, 25, 4.7),
+19
+    (8, 'Smart Home Security Camera', 'Electronics', 79.95, 15, 4.1),
+20
+    (9, 'Air Purifier', 'Appliances', 129.50, 35, 4.6),
+21
+    (10, 'Premium Coffee Maker', 'Kitchen Supplies', 79.99, 50, 4.9),
+22
+    (11, 'Ergonomic Office Chair', 'Furnishings', 189.00, 20, 4.5),
+23
+    (12, 'Wireless Earbuds', 'Electronics', 49.99, 75, 4.3),
+24
+    (13, 'Slow Cooker', 'Appliances', 49.95, 30, 4.7),
+25
+    (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
+26
+    (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+27
+    
+28
+    
+29
+-- © Copyright 2025 Break Into Tech  --
+30
+​
+Text to DDL
+Query SQL
+FROM superstore ;
+1
+--Question 1.items by price
+2
+SELECT item_name, price
+3
+FROM superstore
+4
+ORDER BY price desc; 
+5
+​
+6
+--Question 2. Statistical avg of all prices
+7
+SELECT AVG (price)
+8
+FROM superstore ;
+
+Results
+**Schema (SQLite v3.46)**
+
+    CREATE TABLE superstore (
+        item_id INTEGER PRIMARY KEY,
+        item_name TEXT,
+        category TEXT,
+        price DECIMAL(10, 2),
+        stock_quantity INTEGER,
+        average_rating DECIMAL(3, 2)
+    );
+    
+    INSERT INTO superstore (item_id, item_name, category, price, stock_quantity, average_rating)
+    VALUES
+        (1, 'Stainless Steel Cookware Set', 'Kitchen Supplies', 89.99, 50, 4.6),
+        (2, 'Memory Foam Mattress', 'Furnishings', 499.99, 30, 4.8),
+        (3, 'Smart LED TV', 'Electronics', 549.00, 20, 4.5),
+        (4, 'Robot Vacuum Cleaner', 'Appliances', 199.50, 40, 4.3),
+        (5, 'Wireless Bluetooth Speaker', 'Electronics', 39.99, 60, 4.2),
+        (6, 'Non-Stick Baking Set', 'Kitchen Supplies', 29.95, 80, 4.4),
+        (7, 'Cotton Bedding Set', 'Furnishings', 89.00, 25, 4.7),
+        (8, 'Smart Home Security Camera', 'Electronics', 79.95, 15, 4.1),
+        (9, 'Air Purifier', 'Appliances', 129.50, 35, 4.6),
+        (10, 'Premium Coffee Maker', 'Kitchen Supplies', 79.99, 50, 4.9),
+        (11, 'Ergonomic Office Chair', 'Furnishings', 189.00, 20, 4.5),
+        (12, 'Wireless Earbuds', 'Electronics', 49.99, 75, 4.3),
+        (13, 'Slow Cooker', 'Appliances', 49.95, 30, 4.7),
+        (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
+        (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+        
+        
+    -- © Copyright 2025 Break Into Tech  --
+    
+
+---
+
+**Query #1**
+
+    --Question 1.items by price
+    SELECT item_name, price
+    FROM superstore
+    ORDER BY price desc;
+
+| item_name                    | price  |
+| ---------------------------- | ------ |
+| Smart LED TV                 | 549    |
+| Memory Foam Mattress         | 499.99 |
+| Robot Vacuum Cleaner         | 199.5  |
+| Ergonomic Office Chair       | 189    |
+| Air Purifier                 | 129.5  |
+| Stainless Steel Cookware Set | 89.99  |
+| Cotton Bedding Set           | 89     |
+| Premium Coffee Maker         | 79.99  |
+| Smart Home Security Camera   | 79.95  |
+| Wireless Earbuds             | 49.99  |
+| Slow Cooker                  | 49.95  |
+| Wireless Bluetooth Speaker   | 39.99  |
+| Cutlery Set                  | 34.5   |
+| Non-Stick Baking Set         | 29.95  |
+| Cozy Throw Blanket           | 24.99  |
+
+---
+**Query #2**
+
+     
+    
+    --Question 2. Statistical avg of all prices
+    SELECT AVG (price)
+    FROM superstore ;
+
+| AVG (price)        |
+| ------------------ |
+| 142.35266666666666 |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/PvBAaQwEUSWAxZCsg4Vmx/243)
+Copy as Markdown
+Query #1 Execution time: 0.03ms
+item_name	price
+Smart LED TV	549
+Memory Foam Mattress	499.99
+Robot Vacuum Cleaner	199.5
+Ergonomic Office Chair	189
+Air Purifier	129.5
+Stainless Steel Cookware Set	89.99
+Cotton Bedding Set	89
+Premium Coffee Maker	79.99
+Smart Home Security Camera	79.95
+Wireless Earbuds	49.99
+Slow Cooker	49.95
+Wireless Bluetooth Speaker	39.99
+Cutlery Set	34.5
+Non-Stick Baking Set	29.95
+Cozy Throw Blanket	24.99
+Query #2 Execution time: 0.01ms
+AVG (price)
+142.35266666666666
+
+DB Fiddle – Crafted with ♥ by Status200 in the United Kingdom.
